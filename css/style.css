@@ -8,12 +8,25 @@ Dark green: #28b485
 */
 
 /* BASIC CSS FOR RESETING - UNIVERSAL SELECTOR (APPLIES THIS STYLES TO EACH ELEMENT OF THE PAGE)
- NORMALLY BRWOSERS ADD SOME DEFAULT STYLES */
+ NORMALLY BRWOSERS ADD SOME DEFAULT STYLES 
+  - REMEMBER TO ALSO ADD THE AFFTER AND BEFFORE TO INCLUDE THE PSEUDOELEMENTS TO THE SELECTOR
+ */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+/* SET THE ROOT FONTSIZE (If we include a 100% percentage this will inherit by the browser default font size normally 16px) 
+  To manatian the scale we're using of 10px we can set this percentage to 10/16=0.625 
+  we will allow the user to increase all the measurements porportionally when changing the font size
+  allways use rem ! 
+*/
+html {
+  font-size: 62.5%;
 }
 
 /* THIS FONT FAMILY WILL BE INHERITED BY ALL THE CHILD ELEMENTS 
@@ -22,10 +35,12 @@ Dark green: #28b485
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 1.6rem; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 .header {
@@ -48,13 +63,13 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 /* SIZE OF THE LOGO ITSELF */
 .logo {
-  height: 35px; /* width will set proportionally to the height */
+  height: 3.5rem; /* width will set proportionally to the height */
 }
 
 /* FOR THE SEO WE DIVIDE THE H1 IN TWO PARTS USING SPAN ELEMENT AND TWO CLASSES  
@@ -78,14 +93,14 @@ body {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden; /* This is a trick to prevent any strange shakiness because of the animation */
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -96,9 +111,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /* We can use a shorthand */
   animation: moveInRight 1s ease-out;
@@ -112,10 +127,10 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   80% {
-    transform: translateX(8px);
+    transform: translateX(0.8rem);
   }
   100% {
     opacity: 1;
@@ -126,10 +141,10 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   80% {
-    transform: translateX(-8px);
+    transform: translateX(-0.8rem);
   }
   100% {
     opacity: 1;
@@ -140,7 +155,7 @@ body {
 @keyframes moveInButton {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
   100% {
     opacity: 1;
@@ -164,21 +179,22 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block; /* this way the blocks model works with this element as if it was a normal box with its own padding, width and height */
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* X direction offset, Y direction offset, blur, color */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* X direction offset, Y direction offset, blur, color */
 }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -196,7 +212,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute; /* This absolute position needs to have a refernece: (first element witha relative position that it can find) 
   We will declare position:relative to the btn:visited itself */
   top: 0;
