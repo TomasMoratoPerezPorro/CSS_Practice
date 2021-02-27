@@ -6,3 +6,88 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* BASIC CSS FOR RESETING - UNIVERSAL SELECTOR (APPLIES THIS STYLES TO EACH ELEMENT OF THE PAGE)
+ NORMALLY BRWOSERS ADD SOME DEFAULT STYLES */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* THIS FONT FAMILY WILL BE INHERITED BY ALL THE CHILD ELEMENTS 
+ LINE HEIGHT WILL BE 1.7 TIMES BIGGER THAN THE PERDEFINED */
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh; /* 95% of the viewport height */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)),
+    url(../img/hero.jpg);
+  background-size: cover; /* whatever the width of the viewport, it will allways try to fit the element on this viewport */
+  background-position: top; /* Whatever the viewport size the top of the image stays the top of the container */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75vh,
+    0 100%
+  ); /* Specify a poligon in which the image will be visible, the four corners of the polygon starting by the top left */
+  position: relative;
+}
+
+/* THE BEST WAY IS TO POSITION THE LOGO: USE ABSOULTE POSITION, 
+(we will set the parent element to position: relative) */
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+/* SIZE OF THE LOGO ITSELF */
+.logo {
+  height: 35px; /* width will set proportionally to the height */
+}
+
+/* FOR THE SEO WE DIVIDE THE H1 IN TWO PARTS USING SPAN ELEMENT AND TWO CLASSES  
+    - BLOCK ELEMENTS OCUPPY THE ENTIRE AVALIABLE WIDTH AND CREATE LINE BREAKS AFTER AND BEFORE THEM (with this we will get two lines of text)
+    - WE WANT TO DISPLAY THE TEXT AND THE BUTTON IN THE CENTER SO WE WILL WRAP IT IN A NEW DIV (text-box class)
+    - TO CENTER THAT BOX WE WILL USE ABSOLUTE POSITIONING (remember this will poition the anchor point of the child 50% from top 50% form left)
+    - WE NEED TO SHIFT THE CHILD SO WE TAKE IN MIND ITS CENTER AND NOT ITS ANCHOR POINT (top left corner)
+    - WE WILL TRANSLATE THE WHOLE ELEMENT WITH TRANSLATE (50% in relation to the element itself )
+*/
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* background-color: red; */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
